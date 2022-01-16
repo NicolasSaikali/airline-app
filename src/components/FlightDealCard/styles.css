@@ -1,0 +1,40 @@
+.flight-deal-card{
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(28, 5, 77, 0.1), 0px 12px 32px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.flight-deal-card:hover{
+    cursor: pointer;
+}
+
+.flight-deal-card img{
+    object-fit: cover;
+    max-height: 300px;
+}
+
+.flight-deal-card *{
+    font-family: Nunito Sans;
+}
+
+.flight-deal-card-footer{
+    padding:1rem 1rem;
+}
+
+.flight-deal-card-upper-footer{
+    display:flex;
+    justify-content: space-between;
+}
+
+.flight-deal-card-upper-footer * {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-grey-text);
+}
+
+.flight-deal-card-bottom-footer * {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--grey-text);
+}

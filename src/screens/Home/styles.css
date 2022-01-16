@@ -1,0 +1,31 @@
+.home-header, .home-header .header-content, .home-header img{
+    height: 600px;
+}
+.world-img{
+    z-index:-1;
+    position: fixed;
+    top:0;
+}
+.home-title{
+    font-size: 5rem;
+    font-weight: 800;
+    text-align: center;
+    font-family: Nunito Sans;
+    background: -webkit-linear-gradient(var(--primary),var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.subtitle{
+    font-size:16px;
+    color:var(--grey-text);
+}
+.search-preferences-input{
+    z-index: 10;
+    padding-top:3rem;
+}
+.input-list, .date-picker{
+    padding:10px 20px !important;
+}
+.input-list__control.css-1s2u09g-control{
+    padding:5px 10px !important;
+}

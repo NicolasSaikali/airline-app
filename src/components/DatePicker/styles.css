@@ -1,0 +1,8 @@
+.date-picker::-webkit-input-placeholder, .date-picker::-moz-placeholder,
+.date-picker::placeholder, .date-picker{
+    color:var(--dark-grey-text) !important;
+}
+.date-picker{
+    display: flex;
+    width: 100%;
+}
