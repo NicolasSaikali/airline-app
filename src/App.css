@@ -1,6 +1,40 @@
 :root{
     --primary: #605DEC;
+    --primary-o-half: #5f5dec7e;
     --secondary:#2A26D9;
     --dark-grey-text: #6E7491;
     --grey-text: #7C8DB0;
+    --grey-border:#A1B0CC;
+}
+.color-primary{
+    color: var(--primary) !important;
+}
+.color-grey{
+    color: var(--grey-text) !important;
+}
+.font-primary{
+    font-family: Nunito Sans !important;
+}
+.bckg-primary{
+    background-color: var(--primary) !important;
+    background: var(--primary) !important;
+}
+.bckg-primary-o-half{
+    background-color: var(--primary-o-half) !important;
+    background: var(--primary-o-half) !important;
+}
+.bckg-secondary{
+    background-color: var(--secondary) !important;
+    background: var(--secondary) !important;
+}
+.bckg-light-grey{
+    background-color: var(--grey-text) !important;
+    background: var(--grey-text) !important;
+}
+.bckg-dark-grey{
+    background-color: var(--dark-grey-text) !important;
+    background: var(--dark-grey-text) !important;
+}
+.text-bold{
+    font-weight: 700 !important;
 }

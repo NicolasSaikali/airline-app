@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { FlightRow, Loader } from '../../components'
+import { Button, FlightRow, Loader } from '../../components'
 import { HttpService, StorageService } from '../../services'
 import { FlightInterface } from '../../services/types'
+import "./styles.css"
 
 export const FlightsResult = (props: any) => {
     const searchPreferences = StorageService.getSearchPreferences()
+    const authenticationCredentials = StorageService
 
     const [flights, setFlights] = useState<FlightInterface[]>([])
     const [flightsLoading, setFlightsLoading] = useState(true)
-    const [selectedFlight, setSelectedFlight] = useState(null)
+    const [selectedFlight, setSelectedFlight] = useState<number>(-1)
 
+    const continuePressed = ()=>{
+        let selected = flights.find(flight => flight.id === selectedFlight)
+        let credentials = StorageService.getAuthenticationCredentials()
+        if(selected) StorageService.setSelectedFlight(selected)
+        if(!credentials) window.location.href = '/auth?redirect=pax-info'
+        else window.location.href = '/pax-info'
+    }
 
     const loadFlights = async () => {
         console.log('EXEC')
@@ -43,13 +52,16 @@ export const FlightsResult = (props: any) => {
 
     const renderFlights = () => {
         return flights.map((item, index) => <FlightRow
+            onPress={()=>{setSelectedFlight(item.id)}}
             key={`flight_${index}`}
+            id={item.id}
             price={item.price}
             arrivalDate={item.arrivalDate}
             arrivalTime={item.arrivalTime.toString().substring(0, 5)}
             departureDate={item.departureDate}
             departureTime={item.departureTime.toString().substring(0, 5)}
             airline={item.airline}
+            className={selectedFlight === item.id && 'selected'}
         />
         )
     }
@@ -61,7 +73,30 @@ export const FlightsResult = (props: any) => {
                     <div className="col-md-12 text-center">
                         <Loader />
                     </div>
-                ) : renderFlights()}
+                ) : <>
+                <h4 className="font-primary mx-0 px-2 px-md-0">Select a flight</h4>
+                <div className="row justify-content-center px-0">
+                    <div className="col-6 bckg-primary-o-half d-flex justify-content-center align-items-center">
+                        <h4 className="text-bold py-3 text-light text-center flights-headers mb-0">
+                            Airline
+                        </h4>
+                    </div>
+                    <div className="col-3 bckg-primary d-flex justify-content-center align-items-center">
+                        <h4 className="text-bold py-3 text-light text-center flights-headers mb-0">
+                            Dep. time - Arr. time
+                        </h4>
+                    </div>
+                    <div className="col-3 bckg-dark-grey d-flex justify-content-center align-items-center">
+                        <h4 className="text-bold py-3 text-light text-center flights-headers mb-0">
+                            Price
+                        </h4>
+                    </div>
+                </div>
+                {renderFlights()}
+                <div className="col-12 pt-3 text-right d-flex justify-content-end px-2 px-md-0">
+                    <Button onPress={continuePressed} content='Continue' disabled={selectedFlight === -1}/>
+                </div>
+                </>}
             </div>
         </div>
     </>

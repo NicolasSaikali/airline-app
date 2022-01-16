@@ -2,7 +2,7 @@
     color:var(--dark-grey-text);
     font-family: Nunito Sans;
     padding:10px 0;
-    font-size: 1rem;
+    font-size: .7rem;
 }
 .flight-row{
     transition: 200ms;
@@ -10,5 +10,8 @@
 }
 .flight-row:hover{
     cursor: pointer;
+}
+
+.flight-row.selected{
     background-color: rgba(0,0,0,0.05);
 }

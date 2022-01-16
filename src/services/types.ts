@@ -39,6 +39,7 @@ export interface FlightStopInterface{
 }
 
 export interface FlightInterface{
+    id:number,
     airline: Airlines,
     departureDate: Date | string,
     arrivalDate: Date | string,
@@ -60,4 +61,10 @@ export interface PassengerInformation{
 
 export interface RootState{
     flightSearchPreferences : FlightSearchPreferencesInterface
+}
+
+export interface AuthenticationInterface{
+    id:number | null,
+    email:string,
+    apiKey:string,
 }

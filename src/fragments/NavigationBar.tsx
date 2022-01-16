@@ -4,9 +4,9 @@ import { Link, BrowserRouter as Router } from 'react-router-dom'
 export const NavigationBar = () => (
     <Router>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/">
                 <img src={`${process.env.PUBLIC_URL}/assets/logo.svg`} width="150" className="d-inline-block align-top" alt="logo" />
-            </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

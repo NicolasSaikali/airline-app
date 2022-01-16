@@ -1,0 +1,8 @@
+.text-input{
+    padding:6px 12px;
+    border-radius: 4px;
+    border:0.75px solid var(--grey-border);
+    width:100%;
+    outline: none !important;
+    padding:10px 20px !important;
+}

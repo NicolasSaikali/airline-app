@@ -19,7 +19,6 @@ export const Home = (props: any) => {
 
     const _updateSearchPreferences = (key: string, value: any) => {
         dispatch(updateSearchPreferences({ key, value }))
-        console.log(`${key}, ${value}`)
     }
 
     const _loadTrips = async () => {
